@@ -1,4 +1,5 @@
 @import "reset";
+@import "grill";
 
 * {
   outline: 1px solid goldenrod;
@@ -12,109 +13,6 @@
 .container-fluid {
   max-width: 100%;
 }
-
-//grill
-.grill-row {
-  display: flex;
-  flex-wrap: wrap;
-
-  * {
-    display: inline-block;
-  }
-}
-.no-wrap {
-  flex-wrap: nowrap;
-}
-
-.gitem-1 {
-  flex-basis: 10%;
-}
-.gitem-2 {
-  flex-basis: 20%;
-}
-.gitem-3 {
-  flex-basis: 30%;
-}
-.gitem-4 {
-  flex-basis: 40%;
-}
-.gitem-5 {
-  flex-basis: 50%;
-}
-.gitem-6 {
-  flex-basis: 60%;
-}
-.gitem-7 {
-  flex-basis: 70%;
-}
-.gitem-8 {
-  flex-basis: 80%;
-}
-.gitem-9 {
-  flex-basis: 90%;
-}
-.gitem-10 {
-  flex-basis: 100%;
-}
-
-//gutter
-.gutter-between {
-  justify-content: space-between;
-}
-
-.gutter-around {
-  justify-content: space-around;
-}
-
-.gutter-1 {
-  margin-left: -1%;
-  * {
-    margin-left: 1%;
-  }
-}
-
-.gutter-2 {
-  margin-left: -3%;
-  * {
-    margin-left: 3%;
-  }
-}
-
-.gutter-3 {
-  margin-left: -5%;
-  * {
-    margin-left: 5%;
-  }
-}
-
-//order
-.order-last {
-  order: 9999;
-}
-
-.order-first {
-  order: -1;
-}
-.order-1 {
-  order: 1;
-}
-.order-2 {
-  order: 2;
-}
-.order-3 {
-  order: 3;
-}
-.order-4 {
-  order: 4;
-}
-.order-5 {
-  order: 5;
-}
-
-.order-6 {
-  order: 6;
-}
-
 //responsive grill:
 // Small devices (landscape phones, 576px and up)
 @media only screen and (max-width: 576px) {
@@ -163,4 +61,31 @@
 .fix-bottom {
   @extend %fix;
   bottom: 0;
+}
+
+#drop-down-container {
+  button {
+    height: auto;
+    width: auto;
+  }
+
+  .drop-down-item {
+    display: none;
+  }
+}
+
+#drop-down-container:hover {
+  .drop-down-item {
+    display: block;
+  }
+
+  .drop-down-content {
+    height: auto;
+  }
+}
+
+.drop-down-content {
+  width: auto;
+  height: 0;
+  overflow: hidden;
 }
