@@ -1,6 +1,133 @@
-@import "reset";
-@import "grill";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
+//container
 * {
   outline: 1px solid goldenrod;
 }
@@ -13,21 +140,111 @@
 .container-fluid {
   max-width: 100%;
 }
-//responsive grill:
+
+//responsive grill
 // Small devices (landscape phones, 576px and up)
 @media only screen and (max-width: 576px) {
+  .grill-col-sm {
+    flex-basis: 576px;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media only screen and (max-width: 768px) {
+  .grill-col-md {
+    flex-basis: 720px;
+  }
 }
 
 // Large devices (desktops, 992px and up)
-@media only screen and (max-width: 992px) {
+@media only screen and (min-width: 992px) {
+  .grill-col-lg {
+    flex-basis: 960px;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media only screen and (max-width: 576px) {
+@media only screen and (min-width: 1200px) {
+  .grill-col-xl {
+    flex-basis: 1140px;
+  }
+}
+
+//grill
+.grill-row {
+  display: flex;
+  flex-wrap: wrap;
+
+  * {
+    padding-left: 1%;
+    padding-right: 1%;
+    display: inline-block;
+  }
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.grill-col,
+.grill-col-xs,
+.grill-col-sm,
+.grill-col-md,
+.grill-col-lg,
+.grill-col-xl {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+//grill gutter
+
+.no-gutter {
+  * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.gutter-1 {
+  * {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+.gutter-2 {
+  * {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+//order
+.order-last {
+  order: 9999;
+}
+
+.order-first {
+  order: -1;
+}
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
+.order-3 {
+  order: 3;
+}
+.order-4 {
+  order: 4;
+}
+.order-5 {
+  order: 5;
+}
+
+.order-6 {
+  order: 6;
 }
 
 //positioning
@@ -63,29 +280,46 @@
   bottom: 0;
 }
 
+//drop down
 #drop-down-container {
-  button {
-    height: auto;
-    width: auto;
+  width: 80px;
+  margin-top: 50px;
+  .down-menu {
+    border-top: 1px solid black;
   }
 
-  .drop-down-item {
+  button {
+    width: 80px;
+    height: 30px;
+    background: white;
+    border: 1px solid black;
+    border-top: none;
+  }
+
+  button:hover {
+    opacity: 0.7;
+    background: black;
+    color: white;
+  }
+
+  .down-item {
     display: none;
   }
 }
 
 #drop-down-container:hover {
-  .drop-down-item {
+  .down-item {
     display: block;
   }
 
-  .drop-down-content {
-    height: auto;
+  .down-content {
+    transform: scaleY(1);
   }
 }
 
-.drop-down-content {
-  width: auto;
-  height: 0;
-  overflow: hidden;
+.down-content {
+  width: 80px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease-in-out;
 }

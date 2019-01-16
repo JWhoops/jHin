@@ -133,6 +133,47 @@ table {
   border-spacing: 0;
 }
 
+* {
+  outline: 1px solid goldenrod;
+}
+
+.container {
+  margin: 0 1% 0 1%;
+  width: 98%;
+}
+
+.container-fluid {
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 576px) {
+  .grill-col-sm {
+    -ms-flex-preferred-size: 576px;
+        flex-basis: 576px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .grill-col-md {
+    -ms-flex-preferred-size: 720px;
+        flex-basis: 720px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .grill-col-lg {
+    -ms-flex-preferred-size: 960px;
+        flex-basis: 960px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .grill-col-xl {
+    -ms-flex-preferred-size: 1140px;
+        flex-basis: 1140px;
+  }
+}
+
 .grill-row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -142,6 +183,8 @@ table {
 }
 
 .grill-row * {
+  padding-left: 1%;
+  padding-right: 1%;
   display: inline-block;
 }
 
@@ -150,109 +193,32 @@ table {
       flex-wrap: nowrap;
 }
 
-.gitem-1 {
-  -ms-flex-preferred-size: 10%;
-      flex-basis: 10%;
+.grill-col,
+.grill-col-xs,
+.grill-col-sm,
+.grill-col-md,
+.grill-col-lg,
+.grill-col-xl {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
 }
 
-.gitem-2 {
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-}
-
-.gitem-3 {
-  -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
-}
-
-.gitem-4 {
-  -ms-flex-preferred-size: 40%;
-      flex-basis: 40%;
-}
-
-.gitem-5 {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-}
-
-.gitem-6 {
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
-}
-
-.gitem-7 {
-  -ms-flex-preferred-size: 70%;
-      flex-basis: 70%;
-}
-
-.gitem-8 {
-  -ms-flex-preferred-size: 80%;
-      flex-basis: 80%;
-}
-
-.gitem-9 {
-  -ms-flex-preferred-size: 90%;
-      flex-basis: 90%;
-}
-
-.gitem-10 {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
-
-.grid-item-xs {
-  max-width: 575px;
-}
-
-.grid-item-sm {
-  max-width: 766px;
-}
-
-.grid-item-md {
-  max-width: 992px;
-}
-
-.grid-item-lg {
-  max-width: 1200px;
-}
-
-.grid-item-xl {
-  min-width: 1201px;
-}
-
-.gutter-between {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.gutter-around {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.gutter-1 {
-  margin-left: -1%;
+.no-gutter * {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .gutter-1 * {
-  margin-left: 1%;
-}
-
-.gutter-2 {
-  margin-left: -3%;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
 .gutter-2 * {
-  margin-left: 3%;
-}
-
-.gutter-3 {
-  margin-left: -5%;
-}
-
-.gutter-3 * {
-  margin-left: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .order-last {
@@ -303,19 +269,6 @@ table {
           order: 6;
 }
 
-* {
-  outline: 1px solid goldenrod;
-}
-
-.container {
-  margin: 0 1% 0 1%;
-  width: 98%;
-}
-
-.container-fluid {
-  max-width: 100%;
-}
-
 .center {
   margin: auto;
 }
@@ -344,26 +297,51 @@ table {
   bottom: 0;
 }
 
-#drop-down-container button {
-  height: auto;
-  width: auto;
+#drop-down-container {
+  width: 80px;
+  margin-top: 50px;
 }
 
-#drop-down-container .drop-down-item {
+#drop-down-container .down-menu {
+  border-top: 1px solid black;
+}
+
+#drop-down-container button {
+  width: 80px;
+  height: 30px;
+  background: white;
+  border: 1px solid black;
+  border-top: none;
+}
+
+#drop-down-container button:hover {
+  opacity: 0.7;
+  background: black;
+  color: white;
+}
+
+#drop-down-container .down-item {
   display: none;
 }
 
-#drop-down-container:hover .drop-down-item {
+#drop-down-container:hover .down-item {
   display: block;
 }
 
-#drop-down-container:hover .drop-down-content {
-  height: auto;
+#drop-down-container:hover .down-content {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
 }
 
-.drop-down-content {
-  width: auto;
-  height: 0;
-  overflow: hidden;
+.down-content {
+  width: 80px;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 /*# sourceMappingURL=jHin.css.map */
