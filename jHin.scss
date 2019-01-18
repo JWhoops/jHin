@@ -138,62 +138,92 @@ table {
   max-width: 100%;
 }
 
+//smallest grill
+[class|="grill-col-sm"],
+[class|="grill-col-md"],
+[class|="grill-col-lg"],
+[class|="grill-col-xl"] {
+  flex-basis: 100%;
+}
+
 //responsive grill
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  [class|="grill-col-xs"] {
+    flex-basis: 100%;
+  }
+}
+
 // Small devices (landscape phones, 576px and up)
-@media only screen and (max-width: 576px) {
-  .grill-col-sm {
-    flex-basis: 576px;
+@media (min-width: 576px) {
+  .grill-col-xs {
+    flex-basis: auto;
+  }
+
+  [class|="grill-col-sm"] {
+    flex-basis: 100%;
+  }
+
+  $i: 10;
+  @while $i > 0 {
+    .grill-col-xs-#{$i} {
+      flex-basis: 10% * $i;
+    }
+    $i: $i - 1;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  [class|="grill-col-md"] {
+    flex-basis: 100%;
+  }
+
+  [class|="grill-col-sm"] {
+    flex-basis: auto;
   }
 
   $i: 10;
   @while $i > 0 {
     .grill-col-sm-#{$i} {
-      flex-basis: 576px !important;
-    }
-    $i: $i - 1;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media only screen and (max-width: 768px) {
-  .grill-col-md {
-    flex-basis: 720px;
-  }
-
-  $i: 10;
-  @while $i > 0 {
-    .grill-col-md-#{$i} {
-      flex-basis: 720px !important;
+      flex-basis: 10% * $i;
     }
     $i: $i - 1;
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media only screen and (max-width: 1200px) {
-  .grill-col-lg {
-    flex-basis: 960px;
+@media (min-width: 992px) {
+  [class|="grill-col-lg"] {
+    flex-basis: 100%;
+  }
+
+  [class|="grill-col-md"] {
+    flex-basis: auto;
   }
 
   $i: 10;
   @while $i > 0 {
-    .grill-col-lg-#{$i} {
-      flex-basis: 960px !important;
+    .grill-col-md-#{$i} {
+      flex-basis: 10% * $i;
     }
     $i: $i - 1;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media only screen and (min-width: 1201px) {
+@media (min-width: 1200px) {
   .grill-col-xl {
-    flex-basis: 1140px;
+    flex-basis: 100%;
+  }
+
+  [class|="grill-col-lg"] {
+    flex-basis: auto;
   }
 
   $i: 10;
   @while $i > 0 {
-    .grill-col-xl-#{$i} {
-      flex-basis: 1140px !important;
+    .grill-col-lg-#{$i} {
+      flex-basis: 10% * $i;
     }
     $i: $i - 1;
   }
@@ -225,23 +255,6 @@ table {
 .grill-col-xl {
   flex-grow: 1;
   flex-shrink: 1;
-}
-
-$i: 10;
-@while $i > 0 {
-  .grill-col-xs-#{$i} {
-    flex-basis: 10% * $i;
-  }
-  .grill-col-sm-#{$i} {
-    flex-basis: 10% * $i;
-  }
-  .grill-col-md-#{$i} {
-    flex-basis: 10% * $i;
-  }
-  .grill-col-lg-#{$i} {
-    flex-basis: 10% * $i;
-  }
-  $i: $i - 1;
 }
 
 //grill gutter
