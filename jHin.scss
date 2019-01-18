@@ -139,17 +139,17 @@ table {
 }
 
 //smallest grill
-[class|="grill-col-sm"],
-[class|="grill-col-md"],
-[class|="grill-col-lg"],
-[class|="grill-col-xl"] {
+[class*="grill-col-sm"],
+[class*="grill-col-md"],
+[class*="grill-col-lg"],
+[class*="grill-col-xl"] {
   flex-basis: 100%;
 }
 
 //responsive grill
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
-  [class|="grill-col-xs"] {
+  [class*="grill-col-xs"] {
     flex-basis: 100%;
   }
 }
@@ -174,11 +174,11 @@ table {
 }
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  [class|="grill-col-md"] {
+  [class*="grill-col-md"] {
     flex-basis: 100%;
   }
 
-  [class|="grill-col-sm"] {
+  .grill-col-sm {
     flex-basis: auto;
   }
 
@@ -193,11 +193,11 @@ table {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  [class|="grill-col-lg"] {
+  [class*="grill-col-lg"] {
     flex-basis: 100%;
   }
 
-  [class|="grill-col-md"] {
+  .grill-col-md {
     flex-basis: auto;
   }
 
@@ -212,11 +212,11 @@ table {
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .grill-col-xl {
+  [class*="grill-col-xl"] {
     flex-basis: 100%;
   }
 
-  [class|="grill-col-lg"] {
+  .grill-col-lg {
     flex-basis: auto;
   }
 
