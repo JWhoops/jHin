@@ -369,10 +369,12 @@ table {
       flex-wrap: wrap;
 }
 
-.grill-row * {
+.grill-row [class*="grill-col-"] {
   padding-left: 1%;
   padding-right: 1%;
   display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .no-wrap {
@@ -538,5 +540,39 @@ table {
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.card {
+  border: 1px solid darkgrey;
+  padding: 20px;
+  position: relative;
+}
+
+.card .card-text-container {
+  display: inline-block;
+  width: 53%;
+  vertical-align: top;
+}
+
+.card .card-detail {
+  margin-top: 2%;
+  font-size: 1.1em;
+}
+
+.card .card-title {
+  font-size: 2.5em;
+  font-size: bold;
+}
+
+.card .card-img {
+  width: 40%;
+  display: inline-block;
+  margin-left: 5%;
+}
+
+.card .card-annotation {
+  font-size: 1.3em;
+  margin-top: 5%;
+  display: block;
 }
 /*# sourceMappingURL=jHin.css.map */
