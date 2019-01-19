@@ -1,0 +1,156 @@
+//smallest grill
+[class*="grill-col-sm"],
+[class*="grill-col-md"],
+[class*="grill-col-lg"],
+[class*="grill-col-xl"] {
+  flex-basis: 100%;
+}
+
+//responsive grill
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  [class*="grill-col-xs"] {
+    flex-basis: 100%;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .grill-col-xs {
+    flex-basis: auto;
+  }
+
+  [class|="grill-col-sm"] {
+    flex-basis: 100%;
+  }
+
+  $i: 10;
+  @while $i > 0 {
+    .grill-col-xs-#{$i} {
+      flex-basis: 10% * $i;
+    }
+    $i: $i - 1;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  [class*="grill-col-md"] {
+    flex-basis: 100%;
+  }
+
+  .grill-col-sm {
+    flex-basis: auto;
+  }
+
+  $i: 10;
+  @while $i > 0 {
+    .grill-col-sm-#{$i} {
+      flex-basis: 10% * $i;
+    }
+    $i: $i - 1;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  [class*="grill-col-lg"] {
+    flex-basis: 100%;
+  }
+
+  .grill-col-md {
+    flex-basis: auto;
+  }
+
+  $i: 10;
+  @while $i > 0 {
+    .grill-col-md-#{$i} {
+      flex-basis: 10% * $i;
+    }
+    $i: $i - 1;
+  }
+
+  //responsive nav
+  .nav {
+    #nav-left-container,
+    #nav-right-container {
+      display: block !important;
+    }
+
+    #drop-down-container {
+      display: none !important;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  [class*="grill-col-xl"] {
+    flex-basis: 100%;
+  }
+
+  .grill-col-lg {
+    flex-basis: auto;
+  }
+
+  $i: 10;
+  @while $i > 0 {
+    .grill-col-lg-#{$i} {
+      flex-basis: 10% * $i;
+    }
+    $i: $i - 1;
+  }
+}
+
+//grill row
+.grill-row {
+  display: flex;
+  flex-wrap: wrap;
+
+  [class*="grill-col-"] {
+    padding-left: 1%;
+    padding-right: 1%;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+}
+
+//grill wrap
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+//grill column
+.grill-col,
+.grill-col-xs,
+.grill-col-sm,
+.grill-col-md,
+.grill-col-lg,
+.grill-col-xl {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+//grill gutter
+.no-gutter {
+  * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+//grill order
+.order-last {
+  order: 9999;
+}
+
+.order-first {
+  order: -1;
+}
+
+$i: 1;
+@while $i < 10 {
+  .order-#{$i} {
+    order: $i;
+  }
+  $i: $i + 1;
+}

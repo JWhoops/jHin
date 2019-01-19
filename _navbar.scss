@@ -1,0 +1,43 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 5px 15px 5px 15px;
+  width: 100%;
+  height: 40px;
+
+  #nav-center-container {
+    font-size: 30px;
+  }
+
+  #nav-left-container,
+  #nav-right-container {
+    display: none;
+  }
+
+  #drop-down-container {
+    margin: 0;
+    display: block;
+
+    &:hover {
+      margin-bottom: 10px;
+      margin-top: 17%;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  //responsive nav
+  .nav {
+    #nav-left-container,
+    #nav-right-container {
+      display: block !important;
+    }
+
+    #drop-down-container {
+      display: none !important;
+    }
+  }
+}

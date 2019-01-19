@@ -1,0 +1,43 @@
+//drop down menu
+#drop-down-container {
+  width: 80px;
+  margin-top: 50px;
+  .down-menu {
+    border-top: 1px solid black;
+  }
+
+  button {
+    width: 80px;
+    height: 30px;
+    background: white;
+    border: 1px solid black;
+    border-top: none;
+  }
+
+  button:hover {
+    opacity: 0.7;
+    background: black;
+    color: white;
+  }
+
+  .down-item {
+    display: none;
+  }
+}
+
+#drop-down-container:hover {
+  .down-item {
+    display: block;
+  }
+
+  .down-content {
+    transform: scaleY(1);
+  }
+}
+
+.down-content {
+  width: 80px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease-in-out;
+}

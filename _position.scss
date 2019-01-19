@@ -1,0 +1,32 @@
+//positioning
+.center {
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+%fix {
+  position: fixed;
+}
+
+.fix-top {
+  @extend %fix;
+  top: 0;
+}
+
+.fix-left {
+  @extend %fix;
+  left: 0;
+}
+
+.fix-right {
+  @extend %fix;
+  right: 0;
+}
+
+.fix-bottom {
+  @extend %fix;
+  bottom: 0;
+}
